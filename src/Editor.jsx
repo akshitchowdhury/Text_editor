@@ -5,7 +5,16 @@ const Editor = () => {
     const[words,setWords] = useState(" "); 
 
     const[display, setDisplay] = useState("");
+    
 
+    const remove = ()=>{
+
+        setWords('')
+        setDisplay('')
+
+    }
+
+    
     const clicker = function(){
 
             setDisplay(words)
@@ -23,6 +32,8 @@ const Editor = () => {
     
         <button onClick={clicker}>Click to see change</button>
         {setDisplay && <p>The text entered: {display} </p>}
+
+        <button onClick={remove}>Click to empty text </button>
     </div>
   )
 }
