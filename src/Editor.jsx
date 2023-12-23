@@ -31,7 +31,7 @@ const Editor = () => {
      onChange={change} />
     
         <button onClick={clicker}>Click to see change</button>
-        {setDisplay && <p>The text entered: {display} </p>}
+        {setDisplay && <ul> <li> {display} </li></ul>}
 
         <button onClick={remove}>Click to empty text </button>
     </div>
