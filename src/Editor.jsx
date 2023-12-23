@@ -4,7 +4,7 @@ const Editor = () => {
 
     const[words,setWords] = useState(" "); 
 
-    const[display, setDisplay] = useState("");
+    const[display, setDisplay] = useState([]);
     
 
     const remove = ()=>{
@@ -17,8 +17,14 @@ const Editor = () => {
     
     const clicker = function(){
 
-            setDisplay(words)
+        if (words.trim() !== '') {
+            setDisplay([...display, words]);
+            setWords('');
+          }
+            
     }
+
+    
 
     const change = (e)=>{
 
@@ -31,8 +37,13 @@ const Editor = () => {
      onChange={change} />
     
         <button onClick={clicker}>Click to see change</button>
-        {setDisplay && <ul> <li> {display} </li></ul>}
-
+        <ul>
+          {display.map((item, index) => (
+            <li key={index}>{item}</li>
+          ))}
+        </ul>
+      
+ 
         <button onClick={remove}>Click to empty text </button>
     </div>
   )
